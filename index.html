@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lukha | Diseño Web</title>
   <style>
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
+    }
     * {
       box-sizing: border-box;
       margin: 0;
@@ -18,11 +28,19 @@
       line-height: 1.6;
     }
 
-    header {
-      background: rgba(0,0,0,0.35);
-      padding: 70px 20px;
+    header.hero {
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                  url('https://images.unsplash.com/photo-1498050108023-c5249f4df085');
+      background-size: cover;
+      background-position: center;
+      padding: 120px 20px;
       border-bottom: 1px solid rgba(255,255,255,0.15);
-      backdrop-filter: blur(6px);
+      animation: fadeUp 1s ease-out both;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin: auto;
     }
 
     header h1 {
@@ -36,6 +54,8 @@
     }
 
     section {
+      animation: fadeUp 1s ease-out both;
+
       max-width: 900px;
       margin: auto;
       padding: 70px 20px;
@@ -60,9 +80,17 @@
     .box {
       background: rgba(255,255,255,0.08);
       padding: 25px;
-      border-radius: 16px;
+      border-radius: 18px;
       border: 1px solid rgba(255,255,255,0.15);
       box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .project img {
+      width: 100%;
+      border-radius: 14px;
+      margin-bottom: 15px;
+      object-fit: cover;
     }
 
     footer {
@@ -82,9 +110,11 @@
 </head>
 <body>
 
-  <header>
-    <h1>Lukha</h1>
-    <p>Diseño y desarrollo de sitios web</p>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Lukha</h1>
+      <p>Diseño y desarrollo de sitios web</p>
+    </div>
   </header>
 
   <section class="about">
@@ -108,17 +138,20 @@
   <section>
     <h2>Proyectos</h2>
     <div class="projects">
-      <div class="box">
+      <div class="box project">
+        <img src="https://images.unsplash.com/photo-1522199710521-72d69614c702" alt="Proyecto web demo">
         <strong>Landing Page – Proyecto Demo</strong>
-        <p>Diseño limpio y adaptable a dispositivos móviles.</p>
+        <p>Diseño moderno, claro y adaptable a dispositivos móviles.</p>
       </div>
-      <div class="box">
+      <div class="box project">
+        <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231" alt="Portfolio web">
         <strong>Portfolio Web</strong>
-        <p>Sitio personal para mostrar trabajos y contacto.</p>
+        <p>Sitio personal para mostrar trabajos, servicios y contacto.</p>
       </div>
-      <div class="box">
+      <div class="box project">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="Web informativa">
         <strong>Web Informativa</strong>
-        <p>Concepto de web para presentar servicios y contenido.</p>
+        <p>Concepto de web para presentar servicios de forma profesional.</p>
       </div>
     </div>
   </section>
